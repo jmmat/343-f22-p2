@@ -13,7 +13,6 @@ function getAPI() {
         .catch(err => console.error(err));
 
 
-    console.log(response);
-    console.log("test");
+    console.log("test2");
 }
 getAPI();
