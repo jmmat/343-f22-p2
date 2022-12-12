@@ -12,8 +12,6 @@ function getAPI() {
         .then(response => console.log(response))
         .catch(err => console.error(err));
 
-    console.log(data);
-    console.log(xhr);
-    console.log("test");
+    console.log("test3");
 }
 getAPI();
