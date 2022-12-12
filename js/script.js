@@ -14,5 +14,6 @@ function getAPI() {
 
 
     console.log("test2");
+    
 }
 getAPI();
