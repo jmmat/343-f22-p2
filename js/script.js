@@ -12,8 +12,23 @@ function respond(response) {
     console.log(response.locations);
 }
 
-const response = fetch('https://visual-crossing-weather.p.rapidapi.com/forecast?aggregateHours=24&location=94%20Mill%20Stone%20Drive%2C%20Verona%2CVA&contentType=json&unitGroup=us&shortColumnNames=0', options)
+function fetchResponse(location){
+    const response = fetch(`https://visual-crossing-weather.p.rapidapi.com/forecast?aggregateHours=24&location=${location}&contentType=json&unitGroup=us&shortColumnNames=0`, options)
     .then(response => response.json())
     .then(response => respond(response))
     .catch(err => console.error(err));
+}
 
+
+// Get the form element
+const form = document.getElementById("locationForm");
+
+// Add 'submit' event handler
+form.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    console.log("Location Input Submitted");
+    var input = document.querySelector('#location')
+    console.log(input.value);
+    fetchResponse(input.value.replaceAll(' ', ''));
+});

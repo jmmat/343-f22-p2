@@ -30,16 +30,33 @@
             color: #fff;
             text-align: center;
             border: black;
-            margin: 20px;
+            margin: auto;
+            width: 40%;
+            padding: 10px;
+        }
+        .text {
+            background-color: rgba(0,0,0,.5);
+            color: #fff;
+            text-align: center;
+            border: black;
+            margin: auto;
+            width: 40%;
+            padding: 10px;
+            font-size: large;
+
         }
         </style>
 </head>
 <body>
-    <h1>Weatheria</h1>
     <div class="bg">
         <div>
             <h1 style="color: transparent">fd</h1>
             <h1 class="heading1">Weatheria</h1>
+            <form class="text" id="locationForm">
+                <label for="location">Enter an address or a latitude and longitude in the form latitude,longitude :</label>
+                <input type="location" id="location"/>
+                <input type="submit" value="Submit"/>
+            </form>
         </div>
     </div>
     <script src="js/script.js"></script>
