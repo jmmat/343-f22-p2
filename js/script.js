@@ -7,6 +7,15 @@ const options = {
     }
 };
 
+const options2 = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': '3afd5096e1mshbfca979e6819cc7p187c0ajsn259793b031bd',
+		'X-RapidAPI-Host': 'numbersapi.p.rapidapi.com'
+	}
+};
+
+const date = new Date();
 
 function respond(response) {
     console.log(response);
@@ -55,7 +64,15 @@ function respond(response) {
     addToResults(`Visibility: ${conditions.visibility} mi.`);
     addToResults(`Sunrise: ${formatTime(conditions.sunrise)}`);
     addToResults(`Sunset: ${formatTime(conditions.sunset)}`);
+}
 
+function respond2(response){
+    console.log(response);
+    let results = document.getElementById("factResults");
+    results.replaceChildren();
+    let yearDiff = date.getFullYear() - response.year;
+    let text = document.createTextNode(`${yearDiff} years ago, today: ${response.text}`);
+    results.appendChild(text);
 }
 
 function fetchResponse(location){
@@ -65,9 +82,17 @@ function fetchResponse(location){
     .catch(err => console.error(err));
 }
 
+function fetchResponse2(day, month){
+    fetch(`https://numbersapi.p.rapidapi.com/${day}/${month}/date?fragment=true&json=true`, options2)
+	.then(response => response.json())
+	.then(response => respond2(response))
+	.catch(err => console.error(err));
+}
+
 
 // Get the form element
 const form = document.getElementById("locationForm");
+const button = document.getElementById("factButton")
 
 // Add 'submit' event handler
 form.addEventListener("submit", (event) => {
@@ -77,4 +102,10 @@ form.addEventListener("submit", (event) => {
     var input = document.querySelector('#location')
     console.log(input.value);
     fetchResponse(input.value.replaceAll(' ', ''));
+});
+
+button.addEventListener("click", (event) => {
+    event.preventDefault();
+    console.log("Button Clicked");
+    fetchResponse2(date.getDate(), date.getMonth());
 });
