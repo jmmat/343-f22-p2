@@ -29,7 +29,9 @@
             background-color: rgba(0,0,0,.5);
             color: #fff;
             text-align: center;
-            border: black;
+            border-top: solid black;
+            border-left: solid black;
+            border-right: solid black;
             margin: auto;
             width: 55%;
             padding: 10px;
@@ -38,11 +40,28 @@
             background-color: rgba(0,0,0,.5);
             color: #fff;
             text-align: center;
-            border: black;
+            border-left: solid black;
+            border-right: solid black;
             margin: auto;
             width: 55%;
             padding: 10px;
             font-size: large;
+        }
+        @media only screen and (max-width: 600px) {
+            .heading1 {width: 55%;}
+            .text {width: 55%;}
+        }
+        @media only screen and (min-width: 768px) {
+            .heading1 {width: 60%;}
+            .text {width: 60%;}
+        }
+        @media only screen and (min-width: 992px) {
+            .heading1 {width: 70%;}
+            .text {width: 70%;}
+        }
+        @media only screen and (min-width: 1200px) {
+            .heading1 {width: 75%;}
+            .text {width: 75%;}
         }
         </style>
 </head>
@@ -56,11 +75,11 @@
                 <input type="search" id="location">
                 <input type="submit" value="Submit">
             </form>
-            <div class="text" id="results">
+            <div class="text" id="results" style="border-bottom: solid black">
 
             </div>
             <br>
-            <div class="text">
+            <div class="text" style="border-bottom: solid black; border-top: solid black">
                 <button type="button" id="factButton">Click for a random fact about today in history!</button> 
                 <div id="factResults">
 
