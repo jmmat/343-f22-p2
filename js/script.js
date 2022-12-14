@@ -23,7 +23,7 @@ function respond(response) {
     
     console.log(response.locations[location1]);
     
-    let data = document.createTextNode(`Temperature: ${response.locations[location1].currentConditions.temp}`);
+    let data = document.createTextNode(`Temperature: ${response.locations[location1].currentConditions.temp} °F\n`);
     resultsContainer.appendChild(data);
 }
 
