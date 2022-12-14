@@ -7,9 +7,24 @@ const options = {
     }
 };
 
+
 function respond(response) {
     console.log(response);
-    console.log(response.locations);
+    let resultsContainer = document.getElementById("results");
+    resultsContainer.replaceChildren();
+    try {
+        location1 = Object.keys(response.locations)[0]; // Washington,DC
+    } catch (error) {
+        console.log("Invalid Location");
+        let data = document.createTextNode("Couldn't find that location");
+        resultsContainer.appendChild(data);
+        return;
+    }
+    
+    console.log(response.locations[location1]);
+    
+    let data = document.createTextNode(`Temperature: ${response.locations[location1].currentConditions.temp}`);
+    resultsContainer.appendChild(data);
 }
 
 function fetchResponse(location){

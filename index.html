@@ -31,7 +31,7 @@
             text-align: center;
             border: black;
             margin: auto;
-            width: 50%;
+            width: 40%;
             padding: 10px;
         }
         .text {
@@ -40,16 +40,15 @@
             text-align: center;
             border: black;
             margin: auto;
-            width: 50%;
+            width: 40%;
             padding: 10px;
             font-size: large;
-
         }
         </style>
 </head>
 <body>
     <div class="bg">
-        <div>
+        <div id="main">
             <h1 style="color: transparent">fd</h1>
             <h1 class="heading1">Weatheria</h1>
             <form class="text" id="locationForm">
@@ -57,6 +56,9 @@
                 <input type="location" id="location"/>
                 <input type="submit" value="Submit"/>
             </form>
+            <div class="text" id="results">
+
+            </div>
         </div>
     </div>
     <script src="js/script.js"></script>
